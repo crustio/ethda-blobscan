@@ -1,5 +1,5 @@
 #FROM node:20-alpine as builder
-FROM node:20-alpine
+FROM node:20-alpine3.18
 
 ARG BUILD_TIMESTAMP
 ENV BUILD_TIMESTAMP=$BUILD_TIMESTAMP
