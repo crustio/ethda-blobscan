@@ -1,8 +1,4 @@
-import {
-  BookOpenIcon,
-  ChartBarIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/24/solid";
+import { ChartBarIcon, Squares2X2Icon } from "@heroicons/react/24/solid";
 
 import {
   buildBlobStatsRoute,
@@ -38,11 +34,6 @@ export const NavMenusSection: React.FC = () => {
           { label: "Transaction Metrics", href: buildTransactionStatsRoute() },
         ]}
       />
-      {/* <NavItem
-        label="Docs"
-        icon={<BookOpenIcon />}
-        href="https://docs.blobscan.com"
-      /> */}
     </div>
   );
 };
