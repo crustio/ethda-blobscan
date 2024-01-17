@@ -28,13 +28,13 @@ export const TopBarLayout: React.FC = () => {
         <div className="flex items-center gap-3">
           <NavMenusSection />
           <ThemeModeButton />
-          <Link
-            href="https://github.com/Blobscan"
+          {/* <Link
+            href="https://github.com/Blobscan2"
             className="group"
             aria-label="GitHub"
           >
-            <GitHubIcon className="h-6 w-6 fill-icon-light hover:fill-iconHighlight-light dark:fill-icon-dark hover:dark:fill-iconHighlight-dark" />
-          </Link>
+            <GitHubIcon className="w-6 h-6 fill-icon-light hover:fill-iconHighlight-light dark:fill-icon-dark hover:dark:fill-iconHighlight-dark" />
+          </Link> */}
         </div>
       </nav>
     );

@@ -10,7 +10,6 @@ const getBaseUrl = () => {
 
   return `http://localhost:3000`; // dev SSR should use localhost
 };
-
 export const api = createTRPCNext<AppRouter>({
   config() {
     return {

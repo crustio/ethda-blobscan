@@ -15,15 +15,17 @@ import { DetailsLayout } from "~/components/Layouts/DetailsLayout";
 import { api } from "~/api-client";
 import { formatBytes, hexStringToUtf8 } from "~/utils";
 
-type BlobViewMode = "Original" | "UTF-8";
+type BlobViewMode = "Original" | "UTF-8" | "Image";
 
-const BLOB_VIEW_MODES: BlobViewMode[] = ["Original", "UTF-8"];
+const BLOB_VIEW_MODES: BlobViewMode[] = ["Original", "UTF-8", "Image"];
 
 function formatBlob(blob: string, viewMode: BlobViewMode): string {
   switch (viewMode) {
     case "Original":
       return blob;
     case "UTF-8":
+      return hexStringToUtf8(blob);
+    case "Image":
       return hexStringToUtf8(blob);
     default:
       return blob;

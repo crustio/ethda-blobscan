@@ -38,11 +38,11 @@ export const NavMenusSection: React.FC = () => {
           { label: "Transaction Metrics", href: buildTransactionStatsRoute() },
         ]}
       />
-      <NavItem
+      {/* <NavItem
         label="Docs"
         icon={<BookOpenIcon />}
         href="https://docs.blobscan.com"
-      />
+      /> */}
     </div>
   );
 };
