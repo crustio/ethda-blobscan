@@ -6,3 +6,4 @@ export * from "./routes";
 export * from "./search";
 export * from "./number";
 export * from "./text";
+export * from "./tra";

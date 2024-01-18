@@ -1,7 +1,9 @@
 import { useMemo } from "react";
 import type { NextPage } from "next";
 import NextError from "next/error";
+import { Inter, Montserrat } from "next/font/google";
 import { useRouter } from "next/router";
+import classNames from "classnames";
 
 import { Logo } from "~/components/BlobscanLogo";
 import { Button } from "~/components/Button";
@@ -20,6 +22,8 @@ import {
   buildBlocksRoute,
   buildTransactionsRoute,
 } from "~/utils";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 const LATEST_BLOCKS_LENGTH = 4;
 const LATEST_TXS_LENGTH = 5;
@@ -107,12 +111,7 @@ const Home: NextPage = () => {
       <div className="flex flex-col items-center justify-center gap-8 md:w-8/12">
         <div className="flex items-center gap-3">
           <Logo className="w-64 " />
-          <span
-            style={{
-              fontFamily: ' Montserrat, "Source Han Sans CN-blod", serif',
-            }}
-            className=" text-[70px]"
-          >
+          <span className={classNames("text-[70px]", montserrat.className)}>
             Blobscan
           </span>
         </div>

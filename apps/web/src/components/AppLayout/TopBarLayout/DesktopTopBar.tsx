@@ -1,3 +1,6 @@
+import { Montserrat } from "next/font/google";
+import classNames from "classnames";
+
 import { Logo } from "../../BlobscanLogo";
 import { ExplorerDetails } from "../../ExplorerDetails";
 import { NavMenusSection } from "../../NavMenusSection";
@@ -5,13 +8,23 @@ import { SearchInput } from "../../SearchInput";
 import { ThemeModeButton } from "../../ThemeModeButton";
 import { TopBarSurface } from "./TopBarSurface";
 
+const montserrat = Montserrat({ subsets: ["latin"] });
+
 export const DesktopNav: React.FC = () => {
   return (
     <div>
       <TopBarSurface>
         <div className="flex h-full justify-between">
-          <div className="flex grow items-center gap-12">
-            <Logo className="w-40" />
+          <div className="flex grow items-center gap-3">
+            <Logo className="mo:w-20 w-[140px]" />
+            <span
+              className={classNames(
+                "mo:text-xl text-[40px]",
+                montserrat.className
+              )}
+            >
+              Blobscan
+            </span>
           </div>
           <div className="flex grow-[3] justify-end gap-5">
             <div className="self-end">

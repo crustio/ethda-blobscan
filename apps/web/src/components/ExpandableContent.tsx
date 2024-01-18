@@ -26,7 +26,10 @@ export const ExpandableContent: FC<ExpandableElementProps> = function ({
   }, []);
 
   return (
-    <div className={`relative ${!opened && "max-h-[500px]"} overflow-hidden`}>
+    <div
+      id="content"
+      className={` relative ${!opened && "max-h-[500px]"} overflow-hidden`}
+    >
       <div ref={contentRef}>{children}</div>
       {isLargeContent && (
         <Fragment>
