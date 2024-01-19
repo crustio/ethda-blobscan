@@ -120,53 +120,53 @@ const Tx: NextPage = () => {
                   name: "Total Blob Size",
                   value: formatBytes(totalBlobSize),
                 },
-                {
-                  name: "Blob Fee",
-                  value: (
-                    <div className="flex gap-4">
-                      <div>
-                        <span className="mr-1 text-contentSecondary-light dark:text-contentSecondary-dark">
-                          Base:
-                        </span>
-                        {formatWei(blobGasPrice * BigInt(blobGasUsed))}
-                      </div>
-                      <div>
-                        <span className="mr-1 text-contentSecondary-light dark:text-contentSecondary-dark">
-                          Max:
-                        </span>
-                        {formatWei(
-                          txData.maxFeePerBlobGas * BigInt(blobGasUsed)
-                        )}
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Blob Gas Price",
-                  value: formatWei(blobGasPrice),
-                },
-                {
-                  name: "Blob Gas Used",
-                  value: formatNumber(blobGasUsed),
-                },
-                {
-                  name: "Blob As Calldata Gas",
-                  value: (
-                    <div>
-                      {formatNumber(txData.blobAsCalldataGasUsed)} (
-                      <strong>
-                        {formatNumber(
-                          performDiv(txData.blobAsCalldataGasUsed, blobGasUsed),
-                          "standard",
-                          {
-                            maximumFractionDigits: 2,
-                          }
-                        )}
-                      </strong>{" "}
-                      times more expensive)
-                    </div>
-                  ),
-                },
+                // {
+                //   name: "Blob Fee",
+                //   value: (
+                //     <div className="flex gap-4">
+                //       <div>
+                //         <span className="mr-1 text-contentSecondary-light dark:text-contentSecondary-dark">
+                //           Base:
+                //         </span>
+                //         {formatWei(blobGasPrice * BigInt(blobGasUsed))}
+                //       </div>
+                //       <div>
+                //         <span className="mr-1 text-contentSecondary-light dark:text-contentSecondary-dark">
+                //           Max:
+                //         </span>
+                //         {formatWei(
+                //           txData.maxFeePerBlobGas * BigInt(blobGasUsed)
+                //         )}
+                //       </div>
+                //     </div>
+                //   ),
+                // },
+                // {
+                //   name: "Blob Gas Price",
+                //   value: formatWei(blobGasPrice),
+                // },
+                // {
+                //   name: "Blob Gas Used",
+                //   value: formatNumber(blobGasUsed),
+                // },
+                // {
+                //   name: "Blob As Calldata Gas",
+                //   value: (
+                //     <div>
+                //       {formatNumber(txData.blobAsCalldataGasUsed)} (
+                //       <strong>
+                //         {formatNumber(
+                //           performDiv(txData.blobAsCalldataGasUsed, blobGasUsed),
+                //           "standard",
+                //           {
+                //             maximumFractionDigits: 2,
+                //           }
+                //         )}
+                //       </strong>{" "}
+                //       times more expensive)
+                //     </div>
+                //   ),
+                // },
               ]
             : undefined
         }

@@ -117,57 +117,58 @@ const Block: NextPage = function () {
                     </div>
                   ),
                 },
-                {
-                  name: "Blob Gas Price",
-                  value: (
-                    <div>
-                      {formatWei(blockData.blobGasPrice, { toUnit: "ether" })}
-                      <span className="ml-1 text-contentTertiary-light dark:text-contentTertiary-dark">
-                        ({formatWei(blockData.blobGasPrice)})
-                      </span>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Blob Gas Used",
-                  value: (
-                    <BlobGasUsageDisplay blobGasUsed={blockData.blobGasUsed} />
-                  ),
-                },
-                {
-                  name: "Blob Gas Limit",
-                  value: (
-                    <div>
-                      {formatNumber(MAX_BLOBS_PER_BLOCK)}
-                      <span className="ml-1 text-contentTertiary-light dark:text-contentTertiary-dark">
-                        ({formatNumber(MAX_BLOBS_PER_BLOCK)}{" "}
-                        {pluralize("blob", MAX_BLOBS_PER_BLOCK)} per block)
-                      </span>
-                    </div>
-                  ),
-                },
-                {
-                  name: "Blob As Calldata Gas",
-                  value: (
-                    <div>
-                      {formatNumber(blockData.blobAsCalldataGasUsed)}
-                      <span className="ml-1 text-contentTertiary-light dark:text-contentTertiary-dark">
-                        (
-                        <strong>
-                          {formatNumber(
-                            performDiv(
-                              blockData.blobAsCalldataGasUsed,
-                              blockData.blobGasUsed
-                            ),
-                            "standard",
-                            { maximumFractionDigits: 2 }
-                          )}
-                        </strong>{" "}
-                        times more expensive)
-                      </span>
-                    </div>
-                  ),
-                },
+
+                // {
+                //   name: "Blob Gas Price",
+                //   value: (
+                //     <div>
+                //       {formatWei(blockData.blobGasPrice, { toUnit: "ether" })}
+                //       <span className="ml-1 text-contentTertiary-light dark:text-contentTertiary-dark">
+                //         ({formatWei(blockData.blobGasPrice)})
+                //       </span>
+                //     </div>
+                //   ),
+                // },
+                // {
+                //   name: "Blob Gas Used",
+                //   value: (
+                //     <BlobGasUsageDisplay blobGasUsed={blockData.blobGasUsed} />
+                //   ),
+                // },
+                // {
+                //   name: "Blob Gas Limit",
+                //   value: (
+                //     <div>
+                //       {formatNumber(MAX_BLOBS_PER_BLOCK)}
+                //       <span className="ml-1 text-contentTertiary-light dark:text-contentTertiary-dark">
+                //         ({formatNumber(MAX_BLOBS_PER_BLOCK)}{" "}
+                //         {pluralize("blob", MAX_BLOBS_PER_BLOCK)} per block)
+                //       </span>
+                //     </div>
+                //   ),
+                // },
+                // {
+                //   name: "Blob As Calldata Gas",
+                //   value: (
+                //     <div>
+                //       {formatNumber(blockData.blobAsCalldataGasUsed)}
+                //       <span className="ml-1 text-contentTertiary-light dark:text-contentTertiary-dark">
+                //         (
+                //         <strong>
+                //           {formatNumber(
+                //             performDiv(
+                //               blockData.blobAsCalldataGasUsed,
+                //               blockData.blobGasUsed
+                //             ),
+                //             "standard",
+                //             { maximumFractionDigits: 2 }
+                //           )}
+                //         </strong>{" "}
+                //         times more expensive)
+                //       </span>
+                //     </div>
+                //   ),
+                // },
               ]
             : undefined
         }

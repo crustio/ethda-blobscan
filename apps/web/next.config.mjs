@@ -25,7 +25,7 @@ const config = {
     "zrender",
   ],
   /** We already do linting and typechecking as separate tasks in CI */
-  eslint: { ignoreDuringBuilds: !!process.env.CI },
+  eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: !!process.env.CI },
   experimental: {
     instrumentationHook:

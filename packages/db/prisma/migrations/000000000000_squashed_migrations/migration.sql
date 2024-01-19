@@ -164,9 +164,6 @@ CREATE INDEX "Blob_insertedAt_idx" ON "Blob"("insertedAt");
 CREATE UNIQUE INDEX "Block_number_key" ON "Block"("number");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Block_timestamp_key" ON "Block"("timestamp");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Block_slot_key" ON "Block"("slot");
 
 -- CreateIndex
