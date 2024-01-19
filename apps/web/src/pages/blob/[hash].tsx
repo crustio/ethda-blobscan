@@ -24,8 +24,6 @@ export const BLOB_SIZE =
 
 type BlobViewMode = "Original" | "UTF-8" | "Image";
 
-const BLOB_VIEW_MODES: BlobViewMode[] = ["Original", "UTF-8", "Image"];
-
 function _getBytes(value: any, copy: any) {
   if (value instanceof Uint8Array) {
     if (copy) {
@@ -41,7 +39,6 @@ function _getBytes(value: any, copy: any) {
       result[i] = parseInt(value.substring(offset, offset + 2), 16);
       offset += 2;
     }
-    // console.log(result, result.length);
     return result;
   }
   return undefined;
@@ -130,7 +127,7 @@ const BlobView: NextPage = function () {
     }
     const map: any = {
       Original: blob?.data || "",
-      "UTF-8": utf8,
+      // "UTF-8": utf8,
     };
 
     const types = ((inputData as any[]) || [])
@@ -141,7 +138,6 @@ const BlobView: NextPage = function () {
             ethers.utils?.arrayify(item?.input_data)
           );
           const index = item?.index;
-          console.log(" JSON.parse(meta)", JSON.parse(meta));
 
           const mineType = JSON.parse(meta).blobs[index].content_type;
           return mineType;
@@ -149,12 +145,14 @@ const BlobView: NextPage = function () {
           return null;
         }
       });
+
     const ImageType = types.find(
       (item) => item && (item as string).startsWith("image/")
     );
     const textType = types.find(
       (item) => item && (item as string).startsWith("text/plain")
     );
+
     if (textType && blob?.data) {
       map["UTF-8"] = DecodeBlobs(blob?.data || "0x").toString("utf-8");
     }
@@ -171,8 +169,6 @@ const BlobView: NextPage = function () {
     return map;
   }, [inputData, blob?.data]);
 
-  console.log("inputData", inputData);
-
   const [selectedBlobViewMode, setSelectedBlobViewMode] =
     useState<BlobViewMode>("Original");
 
@@ -182,10 +178,7 @@ const BlobView: NextPage = function () {
       const res = await axios(
         `https://blobscan-devnet.ethda.io/backend/blob/${blob?.versionedHash}/txData`
       );
-      console.log("asdasdasdas", res);
       setInputData(res.data);
-
-      // return res.data[0]?.input_data;
     } catch (e) {
       console.log("error", e);
     }
@@ -236,8 +229,6 @@ const BlobView: NextPage = function () {
       </div>
     );
   };
-
-  console.log("viewMap", viewMap);
 
   return (
     <>
