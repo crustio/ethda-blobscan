@@ -22,18 +22,18 @@ export const NavMenusSection: React.FC = () => {
           { label: "Transactions", href: buildTransactionsRoute() },
         ]}
       />
-      <NavItem
-        label="Stats"
-        icon={<ChartBarIcon />}
-        menuItems={[
-          {
-            label: "Blob Metrics",
-            href: buildBlobStatsRoute(),
-          },
-          { label: "Block Metrics", href: buildBlockStatsRoute() },
-          { label: "Transaction Metrics", href: buildTransactionStatsRoute() },
-        ]}
-      />
+      {/*<NavItem*/}
+      {/*  label="Stats"*/}
+      {/*  icon={<ChartBarIcon />}*/}
+      {/*  menuItems={[*/}
+      {/*    {*/}
+      {/*      label: "Blob Metrics",*/}
+      {/*      href: buildBlobStatsRoute(),*/}
+      {/*    },*/}
+      {/*    { label: "Block Metrics", href: buildBlockStatsRoute() },*/}
+      {/*    { label: "Transaction Metrics", href: buildTransactionStatsRoute() },*/}
+      {/*  ]}*/}
+      {/*/>*/}
     </div>
   );
 };

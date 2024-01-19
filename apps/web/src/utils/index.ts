@@ -7,3 +7,4 @@ export * from "./search";
 export * from "./number";
 export * from "./text";
 export * from "./tra";
+export const hiddenGasElement = true;
