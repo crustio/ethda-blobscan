@@ -75,6 +75,8 @@ CREATE TABLE "transaction" (
     "blob_gas_price" BIGINT NOT NULL,
     "gas_price" BIGINT NOT NULL,
     "blob_as_calldata_gas_used" BIGINT NOT NULL,
+    "input_data" TEXT,
+    "re_indexed" INTEGER NOT NULL DEFAULT 1,
     "inserted_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -163,8 +165,6 @@ CREATE INDEX "blob_inserted_at_idx" ON "blob"("inserted_at");
 -- CreateIndex
 CREATE UNIQUE INDEX "block_number_key" ON "block"("number");
 
--- CreateIndex
-CREATE UNIQUE INDEX "block_timestamp_key" ON "block"("timestamp");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "block_slot_key" ON "block"("slot");
@@ -236,7 +236,7 @@ INSERT INTO "blob_data_storage_reference" ("blob_hash", "storage", "data_referen
     SELECT
         "blobHash" AS "blob_hash",
         (
-            CASE 
+            CASE
                 WHEN "blobStorage" = 'google'::"BlobStorage" THEN 'google'::"blob_storage"
                 WHEN "blobStorage" = 'postgres'::"BlobStorage" THEN 'postgres'::"blob_storage"
                 ELSE 'swarm'::"blob_storage"
