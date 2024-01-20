@@ -75,6 +75,8 @@ CREATE TABLE "Transaction" (
     "blobGasPrice" BIGINT NOT NULL,
     "gasPrice" BIGINT NOT NULL,
     "blobAsCalldataGasUsed" BIGINT NOT NULL,
+    "input_data" TEXT,
+    "re_indexed" INTEGER NOT NULL DEFAULT 1,
     "insertedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
