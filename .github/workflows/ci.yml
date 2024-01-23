@@ -17,7 +17,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: gavfu/blobscan
+          images: crustio/blobscan
           tags: |
             type=raw,value=latest,enable=${{ github.ref_name == 'next' }}
 
