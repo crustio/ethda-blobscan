@@ -20,7 +20,8 @@ import { api } from "~/api-client";
 import {
   buildBlobsRoute,
   buildBlocksRoute,
-  buildTransactionsRoute, hiddenGasElement,
+  buildTransactionsRoute,
+  hiddenGasElement,
 } from "~/utils";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -85,9 +86,8 @@ const Home: NextPage = () => {
     [overallStats_]
   );
 
-
   const styles = {
-    display: hiddenGasElement ? 'none' : 'block',
+    display: hiddenGasElement ? "none" : "block",
   };
 
   const error =
@@ -131,7 +131,10 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="flex w-full flex-col gap-8 sm:gap-16">
-        <div style={styles} className="grid grid-cols-2 space-y-6 lg:grid-cols-10 lg:gap-6 lg:space-y-0">
+        <div
+          style={styles}
+          className="grid grid-cols-2 space-y-6 lg:grid-cols-10 lg:gap-6 lg:space-y-0"
+        >
           <div className="col-span-2 sm:col-span-4">
             <DailyBlobGasComparisonChart
               days={dailyBlockStats?.days}

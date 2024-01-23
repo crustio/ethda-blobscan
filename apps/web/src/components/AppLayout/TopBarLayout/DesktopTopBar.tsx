@@ -1,4 +1,5 @@
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 import classNames from "classnames";
 
 import { Logo } from "../../BlobscanLogo";
@@ -14,19 +15,21 @@ export const DesktopNav: React.FC = () => {
   return (
     <div>
       <TopBarSurface>
-        <div className="flex h-full justify-between">
-          <div className="flex grow items-center gap-3">
-            <Logo className="mo:w-20 w-[140px]" />
-            <span
-              className={classNames(
-                "mo:text-xl text-[40px]",
-                montserrat.className
-              )}
-            >
-              Blobscan
-            </span>
-          </div>
-          <div className="flex grow-[3] justify-end gap-5">
+        <div className="flex h-full items-center justify-between">
+          <Link href="/">
+            <div className="flex grow items-center gap-3">
+              <Logo className="mo:w-20 w-[120px] " />
+              <span
+                className={classNames(
+                  "mo:text-xl text-[30px]",
+                  montserrat.className
+                )}
+              >
+                Blobscan
+              </span>
+            </div>
+          </Link>
+          <div className="flex grow-[3] items-center justify-end gap-5">
             <div className="self-end">
               <NavMenusSection />
             </div>
