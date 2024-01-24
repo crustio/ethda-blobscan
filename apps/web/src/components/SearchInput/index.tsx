@@ -8,7 +8,7 @@ import { api } from "~/api-client";
 import type { RouterOutputs } from "~/api-client";
 import { useClickOutside } from "~/hooks/useClickOutside";
 import { useDebounce } from "~/hooks/useDebounce";
-import { getRouteBySearchCategory } from "~/utils";
+import {getRouteBySearchCategory} from "~/utils";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { SearchResults } from "./SearchResults";
@@ -26,7 +26,7 @@ export const SearchInput: React.FC<SearchInputProps> = function ({
 }: SearchInputProps) {
   const router = useRouter();
   const [term, setTerm] = useState("");
-  const debouncedTerm = useDebounce(term, 600);
+  const debouncedTerm = useDebounce(term, 100);
   const searchRef = useRef<HTMLFormElement>(null);
   const clickOutside = useClickOutside(searchRef);
 
@@ -41,7 +41,7 @@ export const SearchInput: React.FC<SearchInputProps> = function ({
     }
   );
 
-  const handleSubmit: FormEventHandler<HTMLFormElement | HTMLButtonElement> = (
+  const handleSubmit: FormEventHandler<HTMLFormElement | HTMLButtonElement> = async (
     e
   ) => {
     e.preventDefault();
@@ -50,23 +50,21 @@ export const SearchInput: React.FC<SearchInputProps> = function ({
 
     setTerm("");
 
+    if (!searchResults) {
+      return;
+    }
+
     if (!searchResults || !Object.keys(searchResults).length) {
-      void router.push(`/search?q=${term}`);
+      void router.push(`/404?q=${term}`);
       return;
     }
 
     const categories = Object.keys(searchResults) as SearchCategory[];
-
-    if (categories.length > 1) {
-      void router.push(`/search?q=${term}`);
-      return;
-    }
-
     const category = categories[0] as SearchCategory;
     const results = searchResults[category];
 
     if (!results || !results.length || results.length > 1 || !results[0]?.id) {
-      void router.push(`/search?q=${term}`);
+      void router.push(`/404?q=${term}`);
       return;
     }
 
