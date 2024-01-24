@@ -159,7 +159,7 @@ const BlobView: NextPage = function () {
     if (
       blob?.data &&
       ImageType &&
-      ["image/png", "image/svg", "image/jpeg", "image/gif", "image/jpg"].includes(ImageType)
+      ["image/png", "image/svg", "image/jpeg", "image/gif", "image/svg+xml"].includes(ImageType)
     ) {
       const blobs = new Blob([DecodeBlobs(blob.data as any)], {
         type: ImageType,
