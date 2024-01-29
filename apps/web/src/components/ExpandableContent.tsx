@@ -7,12 +7,14 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
 type ExpandableElementProps = {
   children: ReactNode;
+  type: "UTF-8" | "Original" | "Image";
 };
 
 const EXPANDABLE_THRESHOLD = 500;
 
 export const ExpandableContent: FC<ExpandableElementProps> = function ({
   children,
+  type,
 }) {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const [opened, setOpened] = useState(false);
@@ -31,7 +33,7 @@ export const ExpandableContent: FC<ExpandableElementProps> = function ({
       className={` relative ${!opened && "max-h-[500px]"} overflow-hidden`}
     >
       <div ref={contentRef}>{children}</div>
-      {isLargeContent && (
+      {type === "Original" && isLargeContent && (
         <Fragment>
           {!opened && (
             <div
@@ -47,7 +49,7 @@ export const ExpandableContent: FC<ExpandableElementProps> = function ({
               className="flex cursor-pointer items-center gap-1 text-primary-400 transition-colors hover:text-primary-300 "
               onClick={() => setOpened((opened) => !opened)}
             >
-              Show More{" "}
+              Show More
               {opened ? (
                 <ChevronUpIcon className="h-5 w-5" />
               ) : (

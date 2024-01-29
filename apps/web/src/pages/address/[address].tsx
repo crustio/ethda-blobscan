@@ -42,7 +42,9 @@ const Address: NextPage = () => {
                 <div className="relative bottom-0.5">
                   <EthIdenticon address={address} />
                 </div>
-                <div className="">{address}</div>
+                <p className="truncate" title={address}>
+                  {address}
+                </p>
               </div>
             ),
           },

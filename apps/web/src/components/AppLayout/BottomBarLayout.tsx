@@ -48,7 +48,7 @@ export const BottomBarLayout = () => {
             EthDA is a scalable Ethereum layer2 Data Availability solution.
           </div>
         </div>
-        <div className="mo:gap-[60px] mo:my-5 mo:w-full mo:justify-center flex gap-10">
+        <div className="mo:gap-[50px]  mo:my-5 mo:w-full mo:justify-center flex gap-20">
           <Link
             href={"https://t.me/CrustNetwork"}
             target={"_blank"}

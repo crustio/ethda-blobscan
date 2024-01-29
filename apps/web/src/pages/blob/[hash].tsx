@@ -1,4 +1,5 @@
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import type { ReactNode } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { NextPage } from "next";
 import NextError from "next/error";
 import { useRouter } from "next/router";
@@ -159,7 +160,13 @@ const BlobView: NextPage = function () {
     if (
       blob?.data &&
       ImageType &&
-      ["image/png", "image/svg", "image/jpeg", "image/gif", "image/svg+xml"].includes(ImageType)
+      [
+        "image/png",
+        "image/svg",
+        "image/jpeg",
+        "image/gif",
+        "image/svg+xml",
+      ].includes(ImageType)
     ) {
       const blobs = new Blob([DecodeBlobs(blob.data as any)], {
         type: ImageType,
@@ -261,7 +268,7 @@ const BlobView: NextPage = function () {
             <Skeleton count={10} />
           ) : (
             <div className="t break-words p-3 text-left text-sm leading-7">
-              <ExpandableContent>
+              <ExpandableContent type={selectedBlobViewMode}>
                 {viewMap[selectedBlobViewMode]}
               </ExpandableContent>
             </div>

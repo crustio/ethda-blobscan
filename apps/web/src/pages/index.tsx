@@ -116,7 +116,12 @@ const Home: NextPage = () => {
       <div className="flex flex-col items-center justify-center gap-8 md:w-8/12">
         <div className="flex items-center gap-3">
           <Logo className="w-64 " />
-          <span className={classNames("text-[70px]", montserrat.className)}>
+          <span
+            className={classNames(
+              "mo:text-[45px]  text-[70px]",
+              montserrat.className
+            )}
+          >
             Blobscan
           </span>
         </div>
