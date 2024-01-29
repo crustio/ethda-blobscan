@@ -11,8 +11,6 @@ import { formatNumber } from "~/utils";
 const Txs: NextPage = function () {
   const router = useRouter();
   const { p, ps } = getPaginationParams(router.query);
-  console.log("pasdas", p, ps);
-
   const { data, error } = api.tx.getAll.useQuery({ p, ps });
   const { transactions, totalTransactions } = data || {};
 

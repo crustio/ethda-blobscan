@@ -187,7 +187,7 @@ const BlobView: NextPage = function () {
       );
       setInputData(res.data);
     } catch (e) {
-      console.log("error", e);
+      console.error("error", e);
     }
   };
 

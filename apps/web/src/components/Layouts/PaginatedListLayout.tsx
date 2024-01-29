@@ -51,7 +51,7 @@ export const PaginatedListLayout: FC<PaginatedListLayoutProps> = function ({
            * Update the selected page to a lower value if we require less pages to show the
            * new amount of elements per page.
            */
-          p: Math.min(Math.ceil(totalItems ?? 0 / newPageSize), page),
+          p: Math.min(Math.ceil(totalItems ?? 0 / newPageSize), page) || 1,
           ps: newPageSize,
         },
       }),
