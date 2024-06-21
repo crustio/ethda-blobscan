@@ -11,16 +11,16 @@ import { TwitterIcon } from "../icons/Twitter";
 export const BottomBarLayout = () => {
   return (
     <>
-      <div className="mx-auto flex flex-col items-center justify-center space-y-4 p-2">
+      <div className="flex flex-col items-center justify-center p-2 mx-auto space-y-4">
         <div className="md:hidden">
           <ExplorerDetails />
         </div>
         <div className="mo:mx-[5px] flex flex-col justify-center  ">
-          <span className="text-center text-xs text-contentSecondary-light dark:text-contentSecondary-dark">
+          <span className="text-xs text-center text-contentSecondary-light dark:text-contentSecondary-dark">
             EthDA Blobscan is a fork of Blobscan
           </span>
-          <div className="mo:flex mo:flex-row mo:justify-center flex-col flex-wrap ">
-            <div className="text-center text-xs text-contentSecondary-light dark:text-contentSecondary-dark">
+          <div className="flex-col flex-wrap mo:flex mo:flex-row mo:justify-center ">
+            <div className="text-xs text-center text-contentSecondary-light dark:text-contentSecondary-dark">
               Blobscan is the first open-source block explorer for the
               <button
                 onClick={() =>
@@ -32,19 +32,19 @@ export const BottomBarLayout = () => {
               </button>
               shard blob &nbsp;
             </div>
-            <div className="text-center text-xs text-contentSecondary-light dark:text-contentSecondary-dark">
+            <div className="text-xs text-center text-contentSecondary-light dark:text-contentSecondary-dark">
               transactions, providing the necessary infrastructure to scale
               Ethereum.
             </div>
           </div>
         </div>
       </div>
-      <div className="mx-10 mb-10 mt-10 flex flex-wrap items-center justify-between ">
-        <div className="mo:flex mo:justify-center mo:text-center mo:w-full mo:flex-col text-xs">
-          <a className="text-blue-500 " href="https://ethda.io/">
+      <div className="flex flex-wrap items-center justify-between mx-10 mt-10 mb-10 ">
+        <div className="text-xs mo:flex mo:justify-center mo:text-center mo:w-full mo:flex-col">
+          <a className="text-blue-500 " target="_blank" href="https://ethda.io/">
             ethda.io
           </a>
-          <div className="mo:text-center mo:mt-2 text-xs text-contentSecondary-light dark:text-contentSecondary-dark">
+          <div className="text-xs mo:text-center mo:mt-2 text-contentSecondary-light dark:text-contentSecondary-dark">
             EthDA is a scalable Ethereum layer2 Data Availability solution.
           </div>
         </div>
