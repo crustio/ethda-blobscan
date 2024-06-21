@@ -183,7 +183,7 @@ const BlobView: NextPage = function () {
     if (!blob) return;
     try {
       const res = await axios(
-        `https://blobscan-devnet.ethda.io/backend/blob/${blob?.versionedHash}/txData`
+        `https://blobscan-testnet.ethda.io/backend/blob/${blob?.versionedHash}/txData`
       );
       setInputData(res.data);
     } catch (e) {
