@@ -83,7 +83,7 @@ async function getBlockFromBeacon(id: BlockId): Promise<Block> {
   } = (await response.json()) as BeaconFinalizedBlockResponse;
 
   return {
-    number: Number(message.body.execution_payload.block_number),
+    number: Number(message.slot),
     slot: Number(message.slot),
   };
 }
@@ -117,7 +117,7 @@ export async function incrementOverallStats({
   targetBlockId: BlockId;
   batchSize?: number;
 }) {
-  if (!!BEACON_NODE_ENDPOINT && targetBlockId === "finalized") {
+  if (!BEACON_NODE_ENDPOINT && targetBlockId === "finalized") {
     throw new Error(
       "Couldn't increment overall stats: BEACON_NODE_ENDPOINT not defined"
     );
